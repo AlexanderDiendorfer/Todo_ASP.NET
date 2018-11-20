@@ -1,0 +1,26 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="container-fluid">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Until</th>
+                <th scope="col">Title</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var todo in Model.Todos)
+            {
+                <tr @(todo.IsDone ? "class=bg-success" : (todo.DueDate < DateTime.Now ? "class=bg-danger" : ""))></tr>
+                    <td>@todo.DueDate</td>
+                    <td>@todo.Title</td>
+                    <td><a href="edit/@todo.Id" class="btn">Edit</a> | <a href="delete/@todo.Id" lcass="btn btn-primary">Delete</a></td>
+            }
+            </tbody>
+        </table>
+    </div>

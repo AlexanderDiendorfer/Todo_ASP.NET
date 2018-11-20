@@ -1,0 +1,29 @@
+﻿@page "{id:int?}"
+    @model _02_WebApplication.Pages.EditModel
+    @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+    @{
+        ViewData["Title"] = "Edit";
+    }
+    @using (Html.BeginForm())
+    {
+    <input type="hidden" asp-for="Todo.Id"/>
+    <div class="container-fluid">
+        <h1>Created : 9.10.2018</h1>
+
+        <br />
+        <div class="form-group">
+            <label for="exampleInputEmail1">Title</label>
+            <input type="title" class="form-control" id="title" asp-for="Todo.Title">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputEmail1">DueDate</label>
+            <input type="text" class="form-control" id="date" value="@DateTime.Now.Day/@DateTime.Now.Month/@DateTime.Now.Year asp-for="Todo.DueDate">
+        </div>
+
+        <input type="checkbox" name="Done" asp-for="Todo.IsDone" /> Done <br />
+
+        <button type="button" class="btn-primary">Save</button>
+        <a href="/index" type="btn btn-secondary" role="button">Cancel</a>
+    </div>
+    }
+

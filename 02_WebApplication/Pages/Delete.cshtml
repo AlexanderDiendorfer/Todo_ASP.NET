@@ -1,0 +1,10 @@
+﻿@page "{id:int}"
+@model _02_WebApplication.Pages.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Pages/_Layout.cshtml";
+}
+
+<h2>Do you really want to delete the todo '[]'</h2>
+<button type="submit" class="btn btn-warning">Yes</button>
+<a href="/" class="btn">No</a>
